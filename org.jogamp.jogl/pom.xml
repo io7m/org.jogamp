@@ -355,6 +355,7 @@
           <instructions>
             <Private-Package>
               !jogamp.nativetag.*,
+              !org.osgi.*,
               *
             </Private-Package>
 
@@ -364,11 +365,13 @@
               javax.swing;              resolution:="optional",
               org.eclipse.swt.graphics; resolution:="optional",
               org.eclipse.swt.layout;   resolution:="optional",
-              org.eclipse.swt.widgets;  resolution:="optional"
+              org.eclipse.swt.widgets;  resolution:="optional",
+              org.osgi.framework
             </Import-Package>
 
             <Export-Package>
               !jogamp.nativetag.*,
+              !org.osgi.*,
               com.jogamp.nativewindow.*,
               com.jogamp.newt.*,
               com.jogamp.opengl.*

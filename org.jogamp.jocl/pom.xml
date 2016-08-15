@@ -355,13 +355,17 @@
           <instructions>
             <Private-Package>
               !jogamp.nativetag.*,
+              !org.osgi.*,
               *
             </Private-Package>
 
-            <Import-Package></Import-Package>
+            <Import-Package>
+              org.osgi.framework
+            </Import-Package>
 
             <Export-Package>
               !jogamp.nativetag.*,
+              !org.osgi.*,
               com.jogamp.opencl.*
             </Export-Package>
 
