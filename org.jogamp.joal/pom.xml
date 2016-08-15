@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.io7m.bundles</groupId>
+    <artifactId>org.jogamp</artifactId>
+    <version>2.3.2</version>
+  </parent>
+  <artifactId>org.jogamp.joal</artifactId>
+
+  <packaging>bundle</packaging>
+  <name>org.jogamp.joal</name>
+  <description>OSGi bundle for JOAL</description>
+  <url>http://io7m.github.io/org.jogamp</url>
+
+  <scm>
+    <url>${project.parent.scm.url}</url>
+    <connection>${project.parent.scm.connection}</connection>
+    <developerConnection>${project.parent.scm.developerConnection}
+    </developerConnection>
+  </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jogamp.joal</groupId>
+      <artifactId>joal-main</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.jogamp.gluegen</groupId>
+      <artifactId>gluegen-rt-main</artifactId>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <!-- Unpack JOAL natives -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+
+          <!-- Unpack GlueGen -->
+          <execution>
+            <id>unpack-gluegen-natives-linux-amd64</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.gluegen</includeGroupIds>
+              <includeArtifactIds>gluegen-rt</includeArtifactIds>
+              <includeClassifiers>natives-linux-amd64</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-gluegen-natives-linux-armv6</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.gluegen</includeGroupIds>
+              <includeArtifactIds>gluegen-rt</includeArtifactIds>
+              <includeClassifiers>natives-linux-armv6</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-gluegen-natives-linux-armv6hf</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.gluegen</includeGroupIds>
+              <includeArtifactIds>gluegen-rt</includeArtifactIds>
+              <includeClassifiers>natives-linux-armv6hf</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-gluegen-natives-linux-i586</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.gluegen</includeGroupIds>
+              <includeArtifactIds>gluegen-rt</includeArtifactIds>
+              <includeClassifiers>natives-linux-i586</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-gluegen-natives-macosx-universal</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.gluegen</includeGroupIds>
+              <includeArtifactIds>gluegen-rt</includeArtifactIds>
+              <includeClassifiers>natives-macosx-universal</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.jnilib</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-gluegen-natives-solaris-amd64</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.gluegen</includeGroupIds>
+              <includeArtifactIds>gluegen-rt</includeArtifactIds>
+              <includeClassifiers>natives-solaris-amd64</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-gluegen-natives-solaris-i586</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.gluegen</includeGroupIds>
+              <includeArtifactIds>gluegen-rt</includeArtifactIds>
+              <includeClassifiers>natives-solaris-i586</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-gluegen-natives-windows-amd64</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.gluegen</includeGroupIds>
+              <includeArtifactIds>gluegen-rt</includeArtifactIds>
+              <includeClassifiers>natives-windows-amd64</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.dll</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-gluegen-natives-windows-i586</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.gluegen</includeGroupIds>
+              <includeArtifactIds>gluegen-rt</includeArtifactIds>
+              <includeClassifiers>natives-windows-i586</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.dll</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+
+          <!-- Unpack JOAL natives -->
+          <execution>
+            <id>unpack-joal-natives-linux-amd64</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.joal</includeGroupIds>
+              <includeArtifactIds>joal</includeArtifactIds>
+              <includeClassifiers>natives-linux-amd64</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-joal-natives-linux-armv6</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.joal</includeGroupIds>
+              <includeArtifactIds>joal</includeArtifactIds>
+              <includeClassifiers>natives-linux-armv6</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-joal-natives-linux-armv6hf</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.joal</includeGroupIds>
+              <includeArtifactIds>joal</includeArtifactIds>
+              <includeClassifiers>natives-linux-armv6hf</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-joal-natives-linux-i586</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.joal</includeGroupIds>
+              <includeArtifactIds>joal</includeArtifactIds>
+              <includeClassifiers>natives-linux-i586</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-joal-natives-macosx-universal</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.joal</includeGroupIds>
+              <includeArtifactIds>joal</includeArtifactIds>
+              <includeClassifiers>natives-macosx-universal</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.jnilib</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-joal-natives-solaris-amd64</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.joal</includeGroupIds>
+              <includeArtifactIds>joal</includeArtifactIds>
+              <includeClassifiers>natives-solaris-amd64</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-joal-natives-solaris-i586</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.joal</includeGroupIds>
+              <includeArtifactIds>joal</includeArtifactIds>
+              <includeClassifiers>natives-solaris-i586</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.so</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-joal-natives-windows-amd64</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.joal</includeGroupIds>
+              <includeArtifactIds>joal</includeArtifactIds>
+              <includeClassifiers>natives-windows-amd64</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.dll</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-joal-natives-windows-i586</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <overWriteReleases>true</overWriteReleases>
+              <includeGroupIds>org.jogamp.joal</includeGroupIds>
+              <includeArtifactIds>joal</includeArtifactIds>
+              <includeClassifiers>natives-windows-i586</includeClassifiers>
+              <includeTypes>jar</includeTypes>
+              <includes>**\/*.dll</includes>
+              <outputDirectory>${project.build.directory}/unpacked/</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Produce OSGi bundle -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <niceManifest>true</niceManifest>
+          <instructions>
+            <Private-Package>
+              !jogamp.nativetag.*,
+              *
+            </Private-Package>
+
+            <Import-Package></Import-Package>
+
+            <Export-Package>
+              !jogamp.nativetag.*,
+              com.jogamp.openal.*
+            </Export-Package>
+
+            <Include-Resource>
+              ${project.build.directory}/unpacked/
+            </Include-Resource>
+
+            <Bundle-NativeCode>
+              natives/linux-amd64/libgluegen-rt.so;
+              natives/linux-amd64/libjoal.so;
+              natives/linux-amd64/libopenal.so;
+              osname=Linux; processor=x86-64,
+
+              natives/linux-i586/libgluegen-rt.so;
+              natives/linux-i586/libjoal.so;
+              natives/linux-i586/libopenal.so;
+              osname=Linux; processor=x86,
+
+              natives/linux-armv6/libgluegen-rt.so;
+              natives/linux-armv6/libjoal.so;
+              natives/linux-armv6/libopenal.so;
+              osname=Linux; processor=armv6,
+
+              natives/linux-armv6hf/libgluegen-rt.so;
+              natives/linux-armv6hf/libjoal.so;
+              natives/linux-armv6hf/libopenal.so;
+              osname=Linux; processor=armv6hf,
+
+              natives/macosx-universal/libgluegen-rt.jnilib;
+              natives/macosx-universal/libjoal.jnilib;
+              osname=MacOSX; processor=x86; processor=x86-64,
+
+              natives/solaris-i586/libgluegen-rt.so;
+              natives/solaris-i586/libjoal.so;
+              osname=Solaris; osname=SunOS; processor=x86,
+
+              natives/solaris-amd64/libgluegen-rt.so;
+              natives/solaris-amd64/libjoal.so;
+              osname=Solaris; osname=SunOS; processor=x86-64,
+
+              natives/windows-i586/gluegen-rt.dll;
+              natives/windows-i586/joal.dll;
+              natives/windows-i586/soft_oal.dll;
+              osname=Windows; processor=x86,
+
+              natives/windows-amd64/gluegen-rt.dll;
+              natives/windows-amd64/joal.dll;
+              natives/windows-amd64/soft_oal.dll;
+              osname=Windows; processor=x86-64
+            </Bundle-NativeCode>
+
+            <Specification-Title>Java™ Binding for the OpenAL® API</Specification-Title>
+            <Specification-Version>${project.version}</Specification-Version>
+            <Specification-Vendor>jogamp.org</Specification-Vendor>
+            <Implementation-Title>JOAL</Implementation-Title>
+            <Implementation-Version>${project.version}</Implementation-Version>
+            <Implementation-Vendor>jogamp.org</Implementation-Vendor>
+            <Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
+
+            <Built-By>io7m</Built-By>
+            <Sealed>true</Sealed>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
