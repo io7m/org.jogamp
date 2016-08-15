@@ -35,6 +35,11 @@
       <artifactId>gluegen-rt-main</artifactId>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.core</artifactId>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -446,6 +451,10 @@
               natives/windows-amd64/newt.dll;
               osname=Windows; processor=x86-64
             </Bundle-NativeCode>
+
+            <Bundle-Activator>
+              com.io7m.bundles.org.jogamp.jogl.JOGLPropertyActivator
+            </Bundle-Activator>
 
             <Specification-Title>Java™ Binding for the OpenGL® API</Specification-Title>
             <Specification-Version>${project.version}</Specification-Version>
