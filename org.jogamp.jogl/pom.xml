@@ -372,6 +372,8 @@
             <Export-Package>
               !jogamp.nativetag.*,
               !org.osgi.*,
+              com.jogamp.common.*,
+              com.jogamp.graph.*,
               com.jogamp.nativewindow.*,
               com.jogamp.newt.*,
               com.jogamp.opengl.*

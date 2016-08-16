@@ -366,6 +366,7 @@
             <Export-Package>
               !jogamp.nativetag.*,
               !org.osgi.*,
+              com.jogamp.common.*,
               com.jogamp.opencl.*
             </Export-Package>
 
