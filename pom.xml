@@ -7,7 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.io7m.bundles</groupId>
   <artifactId>org.jogamp</artifactId>
-  <version>2.3.2</version>
+  <version>2.3.2001</version>
 
   <packaging>pom</packaging>
   <name>org.jogamp</name>
@@ -23,7 +23,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <siteReposDirectory>/com/io7m/org.jogamp</siteReposDirectory>
+    <siteReposDirectory>com/io7m/org.jogamp</siteReposDirectory>
   </properties>
 
   <licenses>
@@ -95,6 +95,11 @@
         <groupId>org.jogamp.gluegen</groupId>
         <artifactId>gluegen-rt-main</artifactId>
         <version>2.3.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.core</artifactId>
+        <version>6.0.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -256,6 +261,11 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

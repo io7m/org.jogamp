@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.io7m.bundles</groupId>
     <artifactId>org.jogamp</artifactId>
-    <version>2.3.2</version>
+    <version>2.3.2001</version>
   </parent>
   <artifactId>org.jogamp.jogl</artifactId>
 
@@ -34,6 +34,11 @@
       <groupId>org.jogamp.gluegen</groupId>
       <artifactId>gluegen-rt-main</artifactId>
       <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.core</artifactId>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
@@ -350,6 +355,7 @@
           <instructions>
             <Private-Package>
               !jogamp.nativetag.*,
+              !org.osgi.*,
               *
             </Private-Package>
 
@@ -359,11 +365,15 @@
               javax.swing;              resolution:="optional",
               org.eclipse.swt.graphics; resolution:="optional",
               org.eclipse.swt.layout;   resolution:="optional",
-              org.eclipse.swt.widgets;  resolution:="optional"
+              org.eclipse.swt.widgets;  resolution:="optional",
+              org.osgi.framework
             </Import-Package>
 
             <Export-Package>
               !jogamp.nativetag.*,
+              !org.osgi.*,
+              com.jogamp.common.*,
+              com.jogamp.graph.*,
               com.jogamp.nativewindow.*,
               com.jogamp.newt.*,
               com.jogamp.opengl.*
@@ -436,7 +446,7 @@
               natives/windows-i586/nativewindow_awt.dll;
               natives/windows-i586/nativewindow_win32.dll;
               natives/windows-i586/newt.dll;
-              osname=Windows; processor=x86,
+              osname=Win32; processor=x86,
 
               natives/windows-amd64/gluegen-rt.dll;
               natives/windows-amd64/jogl_desktop.dll;
@@ -444,8 +454,12 @@
               natives/windows-amd64/nativewindow_awt.dll;
               natives/windows-amd64/nativewindow_win32.dll;
               natives/windows-amd64/newt.dll;
-              osname=Windows; processor=x86-64
+              osname=Win32; processor=x86-64
             </Bundle-NativeCode>
+
+            <Bundle-Activator>
+              com.io7m.bundles.org.jogamp.jogl.JOGLPropertyActivator
+            </Bundle-Activator>
 
             <Specification-Title>Java™ Binding for the OpenGL® API</Specification-Title>
             <Specification-Version>${project.version}</Specification-Version>

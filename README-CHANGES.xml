@@ -1,19 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<c:changelog xmlns:c="http://schemas.io7m.com/changelog/2.0.0">
-  <c:project>org.jogamp</c:project>
-
-  <c:release c:ticket-system="com.github.io7m.org.jogamp">
-    <c:date>2016-08-15</c:date>
-    <c:version>2.3.2</c:version>
-    <c:item>
-      <c:date>2016-08-15</c:date>
-      <c:type-code-new/>
-      <c:summary>Initial release.</c:summary>
-    </c:item>
-  </c:release>
-
-  <c:ticket-system xml:id="com.github.io7m.org.jogamp">
-    <c:ticket-url>https://github.com/io7m/org.jogamp/issues/</c:ticket-url>
-  </c:ticket-system>
-
+<?xml version="1.0" encoding="UTF-8"?><c:changelog xmlns:c="urn:com.io7m.changelog:4.0" project="org.jogamp">
+  <c:releases>
+    <c:release date="2016-08-15T00:00:00+00:00" ticket-system="com.github.io7m.org.jogamp" version="2.3.2">
+      <c:changes>
+        <c:change date="2016-08-15T00:00:00+00:00" summary="Initial release."/>
+      </c:changes>
+    </c:release>
+    <c:release date="2017-12-05T14:20:29+00:00" ticket-system="com.github.io7m.org.jogamp" version="2.3.2001">
+      <c:changes>
+        <c:change date="2017-12-05T14:20:29+00:00" summary="Correct Windows -&gt; Win32 OS name"/>
+      </c:changes>
+    </c:release>
+  </c:releases>
+  <c:ticket-systems>
+    <c:ticket-system default="false" id="com.github.io7m.org.jogamp" url="https://github.com/io7m/org.jogamp/issues/"/>
+  </c:ticket-systems>
 </c:changelog>

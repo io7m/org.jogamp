@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.io7m.bundles</groupId>
     <artifactId>org.jogamp</artifactId>
-    <version>2.3.2</version>
+    <version>2.3.2001</version>
   </parent>
   <artifactId>org.jogamp.jocl</artifactId>
 
@@ -34,6 +34,11 @@
       <groupId>org.jogamp.gluegen</groupId>
       <artifactId>gluegen-rt-main</artifactId>
       <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.core</artifactId>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
@@ -350,13 +355,18 @@
           <instructions>
             <Private-Package>
               !jogamp.nativetag.*,
+              !org.osgi.*,
               *
             </Private-Package>
 
-            <Import-Package></Import-Package>
+            <Import-Package>
+              org.osgi.framework
+            </Import-Package>
 
             <Export-Package>
               !jogamp.nativetag.*,
+              !org.osgi.*,
+              com.jogamp.common.*,
               com.jogamp.opencl.*
             </Export-Package>
 
@@ -395,12 +405,16 @@
 
               natives/windows-i586/gluegen-rt.dll;
               natives/windows-i586/jocl.dll;
-              osname=Windows; processor=x86,
+              osname=Win32; processor=x86,
 
               natives/windows-amd64/gluegen-rt.dll;
               natives/windows-amd64/jocl.dll;
-              osname=Windows; processor=x86-64
+              osname=Win32; processor=x86-64
             </Bundle-NativeCode>
+
+            <Bundle-Activator>
+              com.io7m.bundles.org.jogamp.jocl.JOCLPropertyActivator
+            </Bundle-Activator>
 
             <Specification-Title>Java™ Binding for the OpenCL® API</Specification-Title>
             <Specification-Version>${project.version}</Specification-Version>
