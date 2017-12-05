@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.io7m.bundles</groupId>
     <artifactId>org.jogamp</artifactId>
-    <version>2.3.2</version>
+    <version>2.3.2001</version>
   </parent>
   <artifactId>org.jogamp.jogl</artifactId>
 
@@ -446,7 +446,7 @@
               natives/windows-i586/nativewindow_awt.dll;
               natives/windows-i586/nativewindow_win32.dll;
               natives/windows-i586/newt.dll;
-              osname=Windows; processor=x86,
+              osname=Win32; processor=x86,
 
               natives/windows-amd64/gluegen-rt.dll;
               natives/windows-amd64/jogl_desktop.dll;
@@ -454,7 +454,7 @@
               natives/windows-amd64/nativewindow_awt.dll;
               natives/windows-amd64/nativewindow_win32.dll;
               natives/windows-amd64/newt.dll;
-              osname=Windows; processor=x86-64
+              osname=Win32; processor=x86-64
             </Bundle-NativeCode>
 
             <Bundle-Activator>
